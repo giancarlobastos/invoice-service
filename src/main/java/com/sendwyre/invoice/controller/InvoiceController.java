@@ -22,8 +22,7 @@ public class InvoiceController {
     @GetMapping("/invoice/{invoiceNumber}")
     public Invoice get(@PathVariable Long invoiceNumber) {
         return invoiceService.getInvoice(invoiceNumber)
-                .orElseThrow(() -> new ResponseStatusException(
-                        HttpStatus.NOT_FOUND, "Invoice Not Found"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invoice Not Found"));
     }
 
     @PutMapping("/invoice")
