@@ -33,4 +33,12 @@ public class InvoiceService {
                 .filter(invoice -> invoice.getInvoiceNumber().equals(invoiceNumber))
                 .findFirst();
     }
+
+    public Optional<Invoice> getInvoice(String invoicePaymentAddress) {
+        return invoiceStorage.findById(invoicePaymentAddress);
+    }
+
+    public Invoice updateInvoice(Invoice invoice) {
+        return invoiceStorage.save(invoice);
+    }
 }
