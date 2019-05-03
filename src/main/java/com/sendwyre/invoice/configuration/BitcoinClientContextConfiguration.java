@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import java.io.File;
 
 @Configuration
-public class BitcointClientContextConfiguration {
+public class BitcoinClientContextConfiguration {
 
     @Bean
     public NetworkParameters networkParameters() {
