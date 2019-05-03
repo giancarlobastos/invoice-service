@@ -1,9 +1,9 @@
-##Wyre Invoice Coding Challenge
+## Wyre Invoice Coding Challenge
 
-####Goal
+#### Goal
 Create a basic invoicing service that allows users to create invoices and pay in digital currency
 
-####Requirements
+#### Requirements
 * A User must be able to type in an amount and the service would generate an Invoice
 * A new digital currency address must be created for each invoice
 * The User can send funds to the address and have the amount deducted from the Invoice total
@@ -16,25 +16,25 @@ Create a basic invoicing service that allows users to create invoices and pay in
 * You only need to support one digital currency. Your best bets would be BTC, ETH or DAI
 * There are no restrictions on language or technologies used in this challenge
 
-####Deliverables
+#### Deliverables
 * Link to repo with source code
 * Link to a running instance of the code or instructions to run locally.
 
 
 
 
-##Proposed solution
+## Proposed solution
 
-####Requirements
+#### Requirements
 * Java 8
 * Maven 3.5+
 
-####Technologies
+#### Technologies
 * Spring Boot 2
 * bitcoinJ
 * Embedded Redis
 
-####How to run
+#### How to run
 
 Execute:
 ```
