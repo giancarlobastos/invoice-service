@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.util.Optional;
 
 import static org.bitcoinj.wallet.KeyChain.KeyPurpose.RECEIVE_FUNDS;
 
@@ -43,12 +42,12 @@ public class BitcoinService implements WalletCoinsReceivedEventListener {
             log.info("Coins received for invoice address {}. Previous balance: {}, new balance: {}",
                     invoicePaymentAddress, prevBalance, newBalance);
 
-            Optional.ofNullable(invoiceStorage.getInvoice(invoicePaymentAddress))
+            invoiceStorage.findById(invoicePaymentAddress)
                     .ifPresent(invoice -> {
                         long paidAmount = newBalance.getValue() - prevBalance.getValue();
                         invoice.setTotalAmountPaid(invoice.getTotalAmountPaid() + paidAmount);
                         invoice.setTotalBalance(newBalance.getValue());
-                        invoiceStorage.persist(invoice);
+                        invoiceStorage.save(invoice);
                     });
         });
     }

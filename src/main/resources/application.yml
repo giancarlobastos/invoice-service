@@ -2,5 +2,10 @@ server.port: 8080
 spring.jackson.serialization.write_dates_as_timestamps: false
 
 bitcoin-client:
-  storage-folder: "~/.btc/"
+  storage-folder: "/tmp/invoice-service/"
   file-prefix: "btc"
+
+embedded-redis:
+  host: localhost
+  port: 6379
+  store-location: "/redis"
