@@ -18,7 +18,7 @@ import javax.annotation.PostConstruct;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class PaymentListener implements WalletCoinsReceivedEventListener {
 
-    private final static double BITCOIN_MINIMAL_UNIT = 0.00000001;
+    private static final double BITCOIN_MINIMAL_UNIT = 0.00000001;
 
     private final InvoiceService invoiceService;
 
