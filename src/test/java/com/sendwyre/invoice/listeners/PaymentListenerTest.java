@@ -65,8 +65,9 @@ public class PaymentListenerTest {
 
         when(transaction.getOutputs()).thenReturn(Collections.singletonList(transactionOutput));
         when(transactionOutput.getScriptPubKey().getToAddress(any()).toString()).thenReturn(WALLET_ADDRESS_MOCK);
+        when(transactionOutput.getValue()).thenReturn(Coin.valueOf(1));
 
-        paymentListener.onCoinsReceived(wallet, transaction, Coin.valueOf(0), Coin.valueOf(1));
+        paymentListener.onCoinsReceived(wallet, transaction, Coin.valueOf(0), Coin.valueOf(10000));
 
         assertThat(invoiceService.getInvoice(WALLET_ADDRESS_MOCK).get().getTotalAmountPaid(), Is.is(0.00000001d));
     }
@@ -84,6 +85,7 @@ public class PaymentListenerTest {
 
         when(transaction.getOutputs()).thenReturn(Collections.singletonList(transactionOutput));
         when(transactionOutput.getScriptPubKey().getToAddress(any()).toString()).thenReturn("unknownInvoicePaymentAddress");
+        when(transactionOutput.getValue()).thenReturn(Coin.valueOf(1));
 
         paymentListener.onCoinsReceived(wallet, transaction, Coin.valueOf(0), Coin.valueOf(1));
 

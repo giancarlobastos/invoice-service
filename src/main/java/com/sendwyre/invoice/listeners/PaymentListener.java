@@ -33,12 +33,14 @@ public class PaymentListener implements WalletCoinsReceivedEventListener {
     public void onCoinsReceived(Wallet wallet, Transaction tx, Coin prevBalance, Coin newBalance) {
         tx.getOutputs().forEach(transactionOutput -> {
             String invoicePaymentAddress = transactionOutput.getScriptPubKey().getToAddress(wallet.getParams()).toString();
-            log.info("Coins received for invoice address {}. Previous balance: {}, new balance: {}",
-                    invoicePaymentAddress, prevBalance.getValue() * BITCOIN_MINIMAL_UNIT, newBalance.getValue() * BITCOIN_MINIMAL_UNIT);
+
+            Coin transactionValue = transactionOutput.getValue();
+
+            log.info("Coins received for invoice address {}. Transcation value: {}", invoicePaymentAddress, transactionValue.getValue() * BITCOIN_MINIMAL_UNIT);
 
             invoiceService.getInvoice(invoicePaymentAddress)
                     .ifPresent(invoice -> {
-                        invoice.setTotalAmountPaid(newBalance.getValue() * BITCOIN_MINIMAL_UNIT);
+                        invoice.setTotalAmountPaid(invoice.getTotalAmountPaid() + transactionValue.getValue() * BITCOIN_MINIMAL_UNIT);
                         invoiceService.updateInvoice(invoice);
                     });
         });
