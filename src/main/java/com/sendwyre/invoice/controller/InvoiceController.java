@@ -34,7 +34,7 @@ public class InvoiceController {
     @GetMapping("/invoices")
     public List<Invoice> get() {
         return invoiceService.getInvoices().stream()
-                .sorted(Comparator.comparing(Invoice::getInvoiceNumber).reversed())
+                .sorted(Comparator.comparing(Invoice::getInvoiceNumber))
                 .collect(Collectors.toList());
     }
 

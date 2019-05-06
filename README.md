@@ -33,6 +33,7 @@ Create a basic invoicing service that allows users to create invoices and pay in
 * Spring Boot 2
 * bitcoinJ
 * Embedded Redis
+* Angular 7
 
 #### How to run
 
@@ -42,3 +43,9 @@ mvn clean spring-boot:run
 ```
 
 And visit [http://localhost:8080](http://localhost:8080) 
+
+#### To test the invoice payment
+You can use [Bitcoin Testnet Faucet](https://bitcoinfaucet.uo1.net/send.php) to send test bitcoins. 
+
+#### Front-end source code
+The front-end source code is available at [https://github.com/giancarlobastos/invoice-frontend](https://github.com/giancarlobastos/invoice-frontend).
