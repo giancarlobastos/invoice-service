@@ -19,8 +19,6 @@ public class Invoice {
 
     private String to;
 
-    private LocalDate date;
-
     private LocalDate dueDate;
 
     private String description;
@@ -29,5 +27,6 @@ public class Invoice {
 
     private double totalAmountPaid;
 
-    private double totalBalance;
+    private InvoiceStatus status;
+
 }

@@ -16,12 +16,13 @@ public class BitcoinService {
 
     private final WalletAppKit walletAppKit;
 
-    private final PaymentListener paymentListener;
-
     @PostConstruct
     public void postConstruct() {
         walletAppKit.startAsync();
         walletAppKit.awaitRunning();
+    }
+
+    public void addCoinsReceivedEventListener(PaymentListener paymentListener) {
         walletAppKit.wallet().addCoinsReceivedEventListener(paymentListener);
     }
 
