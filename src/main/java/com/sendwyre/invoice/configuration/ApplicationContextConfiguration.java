@@ -40,7 +40,11 @@ public class ApplicationContextConfiguration {
     @Bean
     @SneakyThrows
     public RedisServer redisServer() {
-        String redisDir = new File(System.getProperty("user.home"), storeLocation).getAbsolutePath();
+        File file = new File(System.getProperty("user.home"), storeLocation);
+        file.mkdirs();
+
+        String redisDir = file.getAbsolutePath();
+
         return RedisServer.builder()
                 .redisExecProvider(RedisExecProvider.defaultProvider())
                 .port(redisPort)

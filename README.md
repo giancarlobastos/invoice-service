@@ -37,15 +37,17 @@ Create a basic invoicing service that allows users to create invoices and pay in
 
 #### How to run
 
-Execute:
+**Execute:**
 ```
 mvn clean spring-boot:run
 ```
 
-And visit [http://localhost:8080](http://localhost:8080) 
+**And visit [http://localhost:8080](http://localhost:8080)** 
+
+*The front-end is released together with the service.*
 
 #### To test the invoice payment
 You can use [Bitcoin Testnet Faucet](https://bitcoinfaucet.uo1.net/send.php) to send test bitcoins. 
 
 #### Front-end source code
-The front-end source code is available at [https://github.com/giancarlobastos/invoice-frontend](https://github.com/giancarlobastos/invoice-frontend).
+The front-end source code is available at [https://github.com/giancarlobastos/invoice-frontend](https://github.com/giancarlobastos/invoice-frontend). It is not necessary to run it locally.
