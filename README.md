@@ -25,6 +25,17 @@ Create a basic invoicing service that allows users to create invoices and pay in
 
 ## Proposed solution
 
+The solution consists of a micro-service that exposes a REST API to create and retrieve invoices. The service is composed of 5 components with single responsibilities:
+* `BitcoinService` that handles the communication with the bitcoin blockchain;
+* `InvoiceService` that implements the business logic;
+* `PaymentListener` that observes the blockchain transactions to update the status of the payment of invoices;
+* `InvoiceStorage` that persist the invoices, and
+* `InvoiceController` that exposes the `InvoiceService` as a REST API.
+
+For this solution I decided to implement the components without defined underlying _interfaces_ because of 2 reasons:
+1. To keep the solution as simple as possible, and
+2. For consider that in the future, if the `interfaces` are required, they can be added easily as it is the simplest refactoring scenario. 
+
 #### Requirements
 * Java 8
 * Maven 3.5+
